@@ -4,7 +4,9 @@
  */
 package Vista;
 
+import Modelo.Cliente;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,11 +20,26 @@ public class FRM_Registro extends javax.swing.JFrame {
     public FRM_Registro() {
         initComponents();
     }
+    public void limpiar(){
+        jTFNombre.setText("");
+        jTFApellido.setText("");
+        jTFContraseña.setText("");
+        jTFCorreo.setText("");
+    }
     
     public void accionarBotones(ActionListener manejador){
         this.jBTNRegistrarse.addActionListener(manejador);
+        this.jBSalir.addActionListener(manejador);
+        this.jBLimpiar.addActionListener(manejador);
     }
 
+    public void mostrarMensaje(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+    
+    public Cliente getCliente(){
+        return new Cliente(jTFCorreo.getText(),jTFNombre.getText(),jTFApellido.getText(), jTFContraseña.getText(),"","no");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,10 +57,10 @@ public class FRM_Registro extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTFCorreo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTFContrasenia = new javax.swing.JTextField();
+        jTFContraseña = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTFConfirmeContrasenia = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        jBSalir = new javax.swing.JButton();
+        jBLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,23 +99,32 @@ public class FRM_Registro extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Correo");
 
-        jTFContrasenia.addActionListener(new java.awt.event.ActionListener() {
+        jTFContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFContraseniaActionPerformed(evt);
+                jTFContraseñaActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Contraseña");
 
-        jTFConfirmeContrasenia.addActionListener(new java.awt.event.ActionListener() {
+        jBSalir.setBackground(new java.awt.Color(153, 255, 255));
+        jBSalir.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFConfirmeContraseniaActionPerformed(evt);
+                jBSalirActionPerformed(evt);
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setText("Confirme la Contraseña");
+        jBLimpiar.setBackground(new java.awt.Color(153, 255, 255));
+        jBLimpiar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jBLimpiar.setText("Limpiar");
+        jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,7 +136,7 @@ public class FRM_Registro extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(228, 228, 228)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTFContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTFContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTFApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTFCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -119,23 +145,24 @@ public class FRM_Registro extends javax.swing.JFrame {
                             .addGap(27, 27, 27)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel6)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel8)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jTFConfirmeContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(jBTNRegistrarse))
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel7))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(181, 181, 181)
                         .addComponent(jLabel2)))
                 .addContainerGap(56, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(jBTNRegistrarse))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addComponent(jBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,14 +183,14 @@ public class FRM_Registro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTFContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTFConfirmeContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jBTNRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -181,26 +208,30 @@ public class FRM_Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFCorreoActionPerformed
 
-    private void jTFContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFContraseniaActionPerformed
+    private void jTFContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFContraseñaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFContraseniaActionPerformed
+    }//GEN-LAST:event_jTFContraseñaActionPerformed
 
-    private void jTFConfirmeContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFConfirmeContraseniaActionPerformed
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFConfirmeContraseniaActionPerformed
+    }//GEN-LAST:event_jBSalirActionPerformed
+
+    private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBLimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBLimpiar;
+    private javax.swing.JButton jBSalir;
     private javax.swing.JButton jBTNRegistrarse;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     public javax.swing.JTextField jTFApellido;
-    public javax.swing.JTextField jTFConfirmeContrasenia;
-    public javax.swing.JTextField jTFContrasenia;
+    public javax.swing.JTextField jTFContraseña;
     public javax.swing.JTextField jTFCorreo;
     public javax.swing.JTextField jTFNombre;
     // End of variables declaration//GEN-END:variables

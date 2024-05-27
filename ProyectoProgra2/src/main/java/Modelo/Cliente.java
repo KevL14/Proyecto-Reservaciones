@@ -9,42 +9,37 @@ package Modelo;
  * @author Rubén Delgado C
  */
 public class Cliente {
-    private String Id;
+    private String correo;
     private String nombre;
     private String apellido;
-    private String destino;
-    private int cantidadDias;
-    private int totalPersonas;
-    private double totalPagar;
-    
-    //Constructores: Con Parámetros y Vacio
-    public Cliente(String Id, String nombre, String apellido, String destino, int cantidadDias, int totalPersonas, double totalPagar) {
-        this.Id = Id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.destino = destino;
-        this.cantidadDias = cantidadDias;
-        this.totalPersonas = totalPersonas;
-        this.totalPagar = totalPagar;
-    }
-    
-     public Cliente( ) {
-        this.Id = "";
+    private String Contraseña;
+    private String reservaciones;
+    private String admin;
+
+    public Cliente() {
+        this.correo = "";
         this.nombre = "";
         this.apellido = "";
-        this.destino = "";
-        this.cantidadDias = 0;
-        this.totalPersonas = 0;
-        this.totalPagar = 0;
+        this.Contraseña = "";
+        this.reservaciones = "";
+        this.admin = "no";
     }
-     
-    //Metodos Setter y Getter
-    public String getId() {
-        return Id;
+    
+    public Cliente(String correo, String nombre, String apellido, String Contraseña, String reservaciones, String admin) {
+        this.correo = correo;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.Contraseña = Contraseña;
+        this.reservaciones = reservaciones;
+        this.admin = admin;
     }
 
-    public void setId(String Id) {
-        this.Id = Id;
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getNombre() {
@@ -63,41 +58,35 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public String getDestino() {
-        return destino;
+    public String getContraseña() {
+        return Contraseña;
     }
 
-    public void setDestino(String destino) {
-        this.destino = destino;
+    public void setContraseña(String Contraseña) {
+        this.Contraseña = Contraseña;
     }
 
-    public int getCantidadDias() {
-        return cantidadDias;
+    public String getReservaciones() {
+        return reservaciones;
     }
 
-    public void setCantidadDias(int cantidadDías) {
-        this.cantidadDias = cantidadDías;
+    public void setReservaciones(String reservaciones) {
+        this.reservaciones = reservaciones;
     }
 
-    public int getTotalPersonas() {
-        return totalPersonas;
+    public String getAdmin() {
+        return admin;
     }
 
-    public void setTotalPersonas(int totalPersonas) {
-        this.totalPersonas = totalPersonas;
-    }
-    
-    public double getTotalPagar() {
-        return totalPagar;
-    }
-
-    public void setTotalPagar(double totalPagar) {
-        this.totalPagar = totalPagar;
+    public void setAdmin(String admin) {
+        this.admin = admin;
     }
 
     @Override
     public String toString() {
-        return "Cliente{" + "Id=" + Id + ", nombre=" + nombre + ", apellido=" + apellido + ", destino=" + destino + ", cantidadDías=" + cantidadDias + ", totalPagar=" + totalPagar + '}';
-    } 
+        return "Cliente{" + "correo=" + correo + ", nombre=" + nombre + ", apellido=" + apellido + ", Contraseña=" + Contraseña + ", reservaciones=" + reservaciones + ", admin=" + admin + '}';
+    }
+
+
     
 }//Fin Class

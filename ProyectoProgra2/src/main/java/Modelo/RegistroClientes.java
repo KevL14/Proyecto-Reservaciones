@@ -26,9 +26,9 @@ public class RegistroClientes {
         this.listaClientes = readJSON();
     }
     
-    public int buscarClientes(String id){
+    public int buscarClientes(String correo){
         for (int i = 0; i < listaClientes.size(); i++) {
-            if(listaClientes.get(i).getId().equals(id)){
+            if(listaClientes.get(i).getCorreo().equals(correo)){
                 return i;
             }
         }
@@ -37,39 +37,39 @@ public class RegistroClientes {
     
     public String agregarClientes(Cliente cliente){
         if(cliente != null){
-            if(buscarClientes(cliente.getId()) == -1){
+            if(buscarClientes(cliente.getCorreo()) == -1){
                 listaClientes.add(cliente);
                 
                 writeJSON();
                 mensaje = "El cliente fue agregado exitosamente";
             }else{
-                mensaje = "Ya existe un cliente con ese ID";
+                mensaje = "Ya existe un cliente con este correo";
             }
         }
         return mensaje;
     }
     
     public String eliminarCliente(Cliente cliente){
-        if(buscarClientes(cliente.getId()) != -1){
-            listaClientes.remove(buscarClientes(cliente.getId()));
+        if(buscarClientes(cliente.getCorreo()) != -1){
+            listaClientes.remove(buscarClientes(cliente.getCorreo()));
             
             writeJSON();
             mensaje = "El cliente fue eliminado exitosamente";
         }else{
-            mensaje = "No existe un cliente con ese ID";
+            mensaje = "No existe un cliente con este correo";
         }
     return mensaje;
     }
     
     public String modificarCliente(Cliente cliente){
-            if(buscarClientes(cliente.getId()) != -1){
+            if(buscarClientes(cliente.getCorreo()) != -1){
                 eliminarCliente(cliente);
                 agregarClientes(cliente);
                 
                 writeJSON();
                 mensaje = "El cliente fue modificado exitosamente";
             }else{
-                mensaje = "No existe un cliente con ese ID";
+                mensaje = "No existe un cliente con este Correo";
             }
         return mensaje;
     }
@@ -81,13 +81,15 @@ public class RegistroClientes {
 
             JSONObject newObject = new JSONObject();
 
-            newObject.put("ID", listaClientes.get(i).getId());
+            newObject.put("Correo", listaClientes.get(i).getCorreo());
             newObject.put("Nombre", listaClientes.get(i).getNombre());
             newObject.put("Apellido", listaClientes.get(i).getApellido());
-            newObject.put("Destino", listaClientes.get(i).getDestino());
-            newObject.put("Cantidad de dias", listaClientes.get(i).getCantidadDias());
-            newObject.put("Total de personas", listaClientes.get(i).getTotalPersonas());
-            newObject.put("Total a pagar", listaClientes.get(i).getTotalPagar());
+            newObject.put("Contraseña", listaClientes.get(i).getContraseña());
+            newObject.put("Reservaciones", listaClientes.get(i).getReservaciones());
+            newObject.put("Admin", listaClientes.get(i).getReservaciones());
+            
+            
+
 
             jsonArray.add(newObject);
 
@@ -99,6 +101,24 @@ public class RegistroClientes {
             }
         }
     }
+
+//    public ArrayList<Cliente> getListaClientes() {
+//        readJSON();
+//        return listaClientes;
+//    }
+    public Cliente getCliente(String correo){
+        int indiceCliente = buscarClientes(correo);
+        if(indiceCliente!=-1){
+            System.out.println(listaClientes.get(indiceCliente).toString());
+            return listaClientes.get(indiceCliente);
+            
+        }
+        
+        return null;
+    }
+    
+
+    
     
     public ArrayList<Cliente> readJSON() {
         ArrayList<Cliente> listaClien = new ArrayList<>();
@@ -110,15 +130,16 @@ public class RegistroClientes {
 
             for (Object object : jsonArray) {
                 JSONObject jsonObject = (JSONObject) object;
-                String id = (String) jsonObject.get("ID");
+                String correo = (String) jsonObject.get("Correo");
                 String nombre = (String) jsonObject.get("Nombre");
                 String apellido = (String) jsonObject.get("Apellido");
-                String destino = (String) jsonObject.get("Destino");
-                int cantidadDias = ((Long) jsonObject.get("Cantidad de dias")).intValue();
-                int totalPersonas = ((Long) jsonObject.get("Total de personas")).intValue();
-                double totalPagar = ((Double) jsonObject.get("Total de personas")).doubleValue();
+                String contraseña = (String) jsonObject.get("Contraseña");
+                String reservaciones = (String) jsonObject.get("Reservaciones");
+                String admin = (String) jsonObject.get("Admin");
+                
 
-                Cliente cliente = new Cliente(id, nombre, apellido, destino, cantidadDias, totalPersonas, totalPagar);
+
+                Cliente cliente = new Cliente(correo, nombre, apellido, contraseña, reservaciones,admin);
                 listaClien.add(cliente);
             }
         } catch (IOException | ParseException e) {

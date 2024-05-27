@@ -4,6 +4,8 @@
 
 package com.mycompany.proyectoprogra2;
 
+import Controlador.Manejador_FRMLogin;
+
 /**
  *
  * @author msi
@@ -11,7 +13,7 @@ package com.mycompany.proyectoprogra2;
 public class ProyectoProgra2 {
 
     public static void main(String[] args) {
-        System.out.println("Hola Mundo");
+        new Manejador_FRMLogin();
 
     }
 }

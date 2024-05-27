@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Controlador.ManejadorPantallaClientes;
+
 /**
  *
  * @author Rubén Delgado C
@@ -15,6 +17,13 @@ public class FRM_PantallaPrincipalClientes extends javax.swing.JFrame {
      */
     public FRM_PantallaPrincipalClientes() {
         initComponents();
+    }
+    
+    public void escucharBotones(ManejadorPantallaClientes manejador){
+        jMenuItem1.addActionListener(manejador);
+        jMenuItem2.addActionListener(manejador);
+        jMenuItem3.addActionListener(manejador);
+        jMenuItem4.addActionListener(manejador);
     }
 
     /**
@@ -71,6 +80,11 @@ public class FRM_PantallaPrincipalClientes extends javax.swing.JFrame {
         jMenu3.setText("Salir");
 
         jMenuItem3.setText("Salir");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem3);
 
         jMenuBar1.add(jMenu3);
@@ -104,6 +118,10 @@ public class FRM_PantallaPrincipalClientes extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
