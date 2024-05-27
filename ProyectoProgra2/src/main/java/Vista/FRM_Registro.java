@@ -38,7 +38,8 @@ public class FRM_Registro extends javax.swing.JFrame {
     }
     
     public Cliente getCliente(){
-        return new Cliente(jTFCorreo.getText(),jTFNombre.getText(),jTFApellido.getText(), jTFContraseña.getText(),"","no");
+        return new Cliente(jTFCorreo.getText(),jTFNombre.getText(),
+                jTFApellido.getText(), jTFContraseña.getText(),"","no");
     }
     /**
      * This method is called from within the constructor to initialize the form.
