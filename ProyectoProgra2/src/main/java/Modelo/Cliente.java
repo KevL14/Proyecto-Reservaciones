@@ -12,7 +12,7 @@ public class Cliente {
     private String correo;
     private String nombre;
     private String apellido;
-    private String Contraseña;
+    private String contraseña;
     private String reservaciones;
     private String admin;
 
@@ -20,16 +20,16 @@ public class Cliente {
         this.correo = "";
         this.nombre = "";
         this.apellido = "";
-        this.Contraseña = "";
+        this.contraseña = "";
         this.reservaciones = "";
-        this.admin = "no";
+        this.admin = "";
     }
     
-    public Cliente(String correo, String nombre, String apellido, String Contraseña, String reservaciones, String admin) {
+    public Cliente(String correo, String nombre, String apellido, String contraseña, String reservaciones, String admin) {
         this.correo = correo;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.Contraseña = Contraseña;
+        this.contraseña = contraseña;
         this.reservaciones = reservaciones;
         this.admin = admin;
     }
@@ -59,11 +59,11 @@ public class Cliente {
     }
 
     public String getContraseña() {
-        return Contraseña;
+        return contraseña;
     }
 
-    public void setContraseña(String Contraseña) {
-        this.Contraseña = Contraseña;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
     public String getReservaciones() {
@@ -84,7 +84,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" + "correo=" + correo + ", nombre=" + nombre + ", apellido=" + apellido + ", Contraseña=" + Contraseña + ", reservaciones=" + reservaciones + ", admin=" + admin + '}';
+        return "Cliente{" + "correo=" + correo + ", nombre=" + nombre + ", apellido=" + apellido + ", Contraseña=" + contraseña + ", reservaciones=" + reservaciones + ", admin=" + admin + '}';
     }
 
 
