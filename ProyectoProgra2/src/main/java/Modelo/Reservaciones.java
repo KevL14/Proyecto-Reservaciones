@@ -8,7 +8,7 @@ package Modelo;
  *
  * @author Rubén Delgado C
  */
-public class Hotel {
+public class Reservaciones {
     private String Id;
     private String nombre;
     private String tipo;
@@ -25,13 +25,13 @@ public class Hotel {
     
     
     //Constructores: Con Parámetros y Vacio
-    public Hotel(String Id, String nombre, String ubicacion) {
+    public Reservaciones(String Id, String nombre, String ubicacion) {
         this.Id = Id;
         this.nombre = nombre;
         this.ubicacion = ubicacion;
     }
     
-    public Hotel( ) {
+    public Reservaciones( ) {
         this.Id = "";
         this.nombre = "";
         this.ubicacion = "";
@@ -71,10 +71,9 @@ public class Hotel {
         this.provincia = provincia;
     }
 
-    
     @Override
     public String toString() {
-        return "Hotel{" + "Id=" + Id + ", nombre=" + nombre + ", ubicacion=" + ubicacion + '}';
+        return "Reservaciones{" + "Id=" + Id + ", nombre=" + nombre + ", tipo=" + tipo + ", provincia=" + provincia + ", ubicacion=" + ubicacion + ", reservado=" + reservado + ", ba\u00f1os=" + baños + ", habitaciones=" + habitaciones + ", transporte=" + transporte + ", desayuno=" + desayuno + '}';
     }
     
 }//Fin Class

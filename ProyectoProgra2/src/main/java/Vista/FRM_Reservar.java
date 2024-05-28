@@ -28,17 +28,124 @@ public class FRM_Reservar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jBTNSalirR = new javax.swing.JButton();
+        jLUbicacion = new javax.swing.JLabel();
+        jLCapacidadMaxima = new javax.swing.JLabel();
+        jBTNReservar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLNombre = new javax.swing.JLabel();
+        jLTipo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLBanos = new javax.swing.JLabel();
+        jLProvincia = new javax.swing.JLabel();
+        jLHabitaciones = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jBTNSalirR.setBackground(new java.awt.Color(153, 255, 204));
+        jBTNSalirR.setText("Salir");
+
+        jLUbicacion.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLUbicacion.setText("Ubicación");
+
+        jLCapacidadMaxima.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLCapacidadMaxima.setText("Capacidad Máxima");
+
+        jBTNReservar.setBackground(new java.awt.Color(153, 255, 204));
+        jBTNReservar.setText("Reservar");
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel1.setText("Reservaciones");
+
+        jLNombre.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLNombre.setText("Nombre");
+
+        jLTipo.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLTipo.setText("Tipo");
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel2.setText("Cantidades:");
+
+        jLBanos.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLBanos.setText("Baños");
+
+        jLProvincia.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLProvincia.setText("Provincia");
+
+        jLHabitaciones.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLHabitaciones.setText("Habitaciones");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(jBTNReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(113, 113, 113)
+                        .addComponent(jBTNSalirR, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addComponent(jLabel1)))
+                .addContainerGap(155, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLHabitaciones))
+                .addGap(92, 92, 92))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(jLTipo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLProvincia)
+                            .addComponent(jLNombre)
+                            .addComponent(jLUbicacion))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLBanos)
+                        .addGap(126, 126, 126))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLCapacidadMaxima)
+                        .addGap(78, 78, 78))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 292, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jLNombre)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLTipo)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLProvincia)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLUbicacion))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLBanos)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLHabitaciones)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLCapacidadMaxima, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBTNSalirR, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBTNReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55))
         );
 
         pack();
@@ -50,5 +157,16 @@ public class FRM_Reservar extends javax.swing.JFrame {
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBTNReservar;
+    private javax.swing.JButton jBTNSalirR;
+    private javax.swing.JLabel jLBanos;
+    private javax.swing.JLabel jLCapacidadMaxima;
+    private javax.swing.JLabel jLHabitaciones;
+    private javax.swing.JLabel jLNombre;
+    private javax.swing.JLabel jLProvincia;
+    private javax.swing.JLabel jLTipo;
+    private javax.swing.JLabel jLUbicacion;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
