@@ -11,7 +11,18 @@ package Modelo;
 public class Hotel {
     private String Id;
     private String nombre;
+    private String tipo;
+    private String provincia;
     private String ubicacion;
+    private String reservado = "123_12(10)-24_14(10)-24{snnxsn} / 234_16(10)-24_20(10)-24";
+//    servicios fijos
+    private String baños;
+    private String habitaciones;
+    
+//    servios incluibles 
+    private String transporte;
+    private String desayuno;
+    
     
     //Constructores: Con Parámetros y Vacio
     public Hotel(String Id, String nombre, String ubicacion) {
@@ -25,6 +36,7 @@ public class Hotel {
         this.nombre = "";
         this.ubicacion = "";
     }
+    
     
     //Metodos Setter y Getter
     public String getId() {
@@ -51,6 +63,15 @@ public class Hotel {
         this.ubicacion = ubicacion;
     }
 
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
+
+    
     @Override
     public String toString() {
         return "Hotel{" + "Id=" + Id + ", nombre=" + nombre + ", ubicacion=" + ubicacion + '}';
