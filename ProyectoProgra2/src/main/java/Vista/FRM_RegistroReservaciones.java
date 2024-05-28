@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Controlador.ManejadorRegistroReservaciones;
+
 /**
  *
  * @author msi
@@ -17,6 +19,13 @@ public class FRM_RegistroReservaciones extends javax.swing.JFrame {
      */
     public FRM_RegistroReservaciones() {
         initComponents();
+    }
+    
+    public void escucharBotones(ManejadorRegistroReservaciones manejador){
+        jBTNAgregarReservacion.addActionListener(manejador);
+        jBTNEliminarReservacion.addActionListener(manejador);
+        jBTNModificarReservacion.addActionListener(manejador);
+        jBTNSalirR.addActionListener(manejador);
     }
 
     /**

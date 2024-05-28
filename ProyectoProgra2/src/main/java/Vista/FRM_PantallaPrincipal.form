@@ -6,12 +6,12 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Registro Hotel"/>
+            <Property name="text" type="java.lang.String" value="Reservaciones"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Registro Hotel"/>
+                <Property name="text" type="java.lang.String" value="Registrar Reservacion"/>
               </Properties>
             </MenuItem>
           </SubComponents>

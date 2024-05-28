@@ -55,9 +55,9 @@ public class FRM_PantallaPrincipal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel2.setText("Administradores");
 
-        jMenu1.setText("Registro Hotel");
+        jMenu1.setText("Reservaciones");
 
-        jMenuItem3.setText("Registro Hotel");
+        jMenuItem3.setText("Registrar Reservacion");
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);

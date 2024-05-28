@@ -14,10 +14,12 @@ import java.awt.event.ActionListener;
  */
 public class ManejadorPantallaAdministradores implements ActionListener{
     private FRM_PantallaPrincipal frmPantallaPrincipalAdmiistradores;
+    private ManejadorListaReservaciones manejadorListaReservaciones;
     private Manejador_FRMLogin manejadorLogin;
 
     public ManejadorPantallaAdministradores(Manejador_FRMLogin manejadorfrmLogin) {
         this.frmPantallaPrincipalAdmiistradores = new FRM_PantallaPrincipal();
+        this.manejadorListaReservaciones = new ManejadorListaReservaciones();
         this.frmPantallaPrincipalAdmiistradores.escucharBotones(this);
         this.manejadorLogin = manejadorfrmLogin;
     }
@@ -28,7 +30,9 @@ public class ManejadorPantallaAdministradores implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
-            
+            case "Registrar Reservacion":
+                    manejadorListaReservaciones.visualizarVentana();
+                break;
             
             
             case "Salir":

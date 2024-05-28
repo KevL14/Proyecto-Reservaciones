@@ -16,10 +16,13 @@ public class ManejadorPantallaClientes implements ActionListener {
 
     private FRM_PantallaPrincipalClientes frmPantallaPrincipalClientes;
     private Manejador_FRMLogin manejadorLogin;
+    private ManejadorBuscarReserva manejadorBuscarReserva;
+            
 
     public ManejadorPantallaClientes(Manejador_FRMLogin manejadorLogin) {
         this.frmPantallaPrincipalClientes = new FRM_PantallaPrincipalClientes();
         this.frmPantallaPrincipalClientes.escucharBotones(this);
+        this.manejadorBuscarReserva = new ManejadorBuscarReserva();
         this.manejadorLogin = manejadorLogin;
     }
     
@@ -31,7 +34,17 @@ public class ManejadorPantallaClientes implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
-            
+            case "Reservar":
+                manejadorBuscarReserva.visualizarVentana();
+                break;
+                
+            case "Administrar perfil":
+                
+                break;
+                
+            case "Historial Reservaciones":
+                
+                break;
             
             
             case "Salir":
