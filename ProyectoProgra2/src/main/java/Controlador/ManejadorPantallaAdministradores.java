@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Modelo.RegistroReservaciones;
 import Vista.FRM_PantallaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +24,9 @@ public class ManejadorPantallaAdministradores implements ActionListener{
         this.frmPantallaPrincipalAdmiistradores.escucharBotones(this);
         this.manejadorLogin = manejadorfrmLogin;
     }
-    
+    public RegistroReservaciones getRegistroReservas(){
+        return manejadorListaReservaciones.getRegistroReservas();
+    }
     public void visibilidadVentana(){
         frmPantallaPrincipalAdmiistradores.setVisible(true);
     }

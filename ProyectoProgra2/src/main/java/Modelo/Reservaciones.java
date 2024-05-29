@@ -20,7 +20,7 @@ Desayuno
 Servicio a la habitacion
  */
 public class Reservaciones {
-    private String Id;
+    private String precioNoche;
     private String nombre;
     private String tipo;
     private String provincia;
@@ -36,12 +36,12 @@ public class Reservaciones {
     
     //Constructores: Con Parámetros y Vacio
 
-    public Reservaciones(String Id, String nombre, String tipo, String provincia, String ubicacion, String reservado, String baños, String habitaciones, String camas, String cocinaEquipada, String zonaRecreativas, String piscina, String parqueo, String seguridad, String transporte, String desayuno, String servicioALaHabitacion) {
-        this.Id = Id;
+    public Reservaciones( String nombre, String tipo, String provincia, String ubicacion, String precioNoche, String reservado, String baños, String habitaciones, String camas, String cocinaEquipada, String zonaRecreativas, String piscina, String parqueo, String seguridad, String transporte, String desayuno, String servicioALaHabitacion) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.provincia = provincia;
         this.ubicacion = ubicacion;
+        this.precioNoche = precioNoche;
         this.reservado = reservado;
         this.baños = baños;
         this.habitaciones = habitaciones;
@@ -60,11 +60,11 @@ public class Reservaciones {
 
 
     public Reservaciones() {
-        this.Id = "";
         this.nombre = "";
         this.tipo = "";
         this.provincia = "";
         this.ubicacion = "";
+        this.precioNoche = "";
         this.reservado = "";
         this.baños = "";
         this.habitaciones = "";
@@ -78,13 +78,6 @@ public class Reservaciones {
         this.seguridad="";
     }
 
-    public String getId() {
-        return Id;
-    }
-
-    public void setId(String Id) {
-        this.Id = Id;
-    }
 
     public String getNombre() {
         return nombre;
@@ -116,6 +109,14 @@ public class Reservaciones {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public String getPrecioNoche() {
+        return precioNoche;
+    }
+
+    public void setPrecioNoche(String precioNoche) {
+        this.precioNoche = precioNoche;
     }
 
     public String getReservado() {

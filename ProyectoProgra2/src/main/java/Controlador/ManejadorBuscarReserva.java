@@ -4,7 +4,9 @@
  */
 package Controlador;
 
+import Modelo.RegistroReservaciones;
 import Vista.FRM_BuscarReserva;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,14 +16,19 @@ import java.awt.event.ActionListener;
  */
 public class ManejadorBuscarReserva implements ActionListener{
     private FRM_BuscarReserva frmBuscarReserva;
-
-    public ManejadorBuscarReserva() {
+    private RegistroReservaciones registroReservaciones;
+    private String[] TITULO_TABLA;
+    public ManejadorBuscarReserva(RegistroReservaciones registroReservaciones) {
         this.frmBuscarReserva = new FRM_BuscarReserva();
+        this.registroReservaciones = registroReservaciones;
+        this.TITULO_TABLA = new String[]{"Nombres","Tipo","Precio Por Noche","Provincia"};
         this.frmBuscarReserva.escucharBotones(this);
     }
     
     public void visualizarVentana(){
         frmBuscarReserva.setVisible(true);
+        frmBuscarReserva.setDataTable(registroReservaciones.llenarMatrizTabla(),TITULO_TABLA);
+        
     }
     @Override
     public void actionPerformed(ActionEvent e) {

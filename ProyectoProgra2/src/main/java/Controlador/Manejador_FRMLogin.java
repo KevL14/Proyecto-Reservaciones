@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.AdministrarLogin;
 import Modelo.Cliente;
+import Modelo.RegistroReservaciones;
 import Vista.FRM_Login;
 import Vista.FRM_PantallaPrincipal;
 import Vista.FRM_PantallaPrincipalClientes;
@@ -25,7 +26,7 @@ public class Manejador_FRMLogin implements ActionListener{
     
     public Manejador_FRMLogin() {
         this.manejadorPantallaAdministradores = new ManejadorPantallaAdministradores(this);
-        this.manejadorPantallaClientes = new ManejadorPantallaClientes(this);
+        this.manejadorPantallaClientes = new ManejadorPantallaClientes(this, manejadorPantallaAdministradores.getRegistroReservas());
         this.manejadorRegistro = new ManejadorRegistro();
         this.administrarLogin = new AdministrarLogin();
         this.frmLogin = new FRM_Login();

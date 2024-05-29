@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Modelo.RegistroReservaciones;
 import Vista.FRM_PantallaPrincipalClientes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,10 +20,10 @@ public class ManejadorPantallaClientes implements ActionListener {
     private ManejadorBuscarReserva manejadorBuscarReserva;
             
 
-    public ManejadorPantallaClientes(Manejador_FRMLogin manejadorLogin) {
+    public ManejadorPantallaClientes(Manejador_FRMLogin manejadorLogin, RegistroReservaciones registroReservaciones) {
         this.frmPantallaPrincipalClientes = new FRM_PantallaPrincipalClientes();
         this.frmPantallaPrincipalClientes.escucharBotones(this);
-        this.manejadorBuscarReserva = new ManejadorBuscarReserva();
+        this.manejadorBuscarReserva = new ManejadorBuscarReserva(registroReservaciones);
         this.manejadorLogin = manejadorLogin;
     }
     

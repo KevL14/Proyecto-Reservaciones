@@ -5,6 +5,8 @@
 package Vista;
 
 import Controlador.ManejadorBuscarReserva;
+import java.awt.event.MouseListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,14 +18,40 @@ public class FRM_BuscarReserva extends javax.swing.JFrame {
     /**
      * Creates new form FRM_BuscarReserva
      */
+
     public FRM_BuscarReserva() {
         initComponents();
+
     }
     
     
     public void  escucharBotones(ManejadorBuscarReserva manejador){
         jBSalir.addActionListener(manejador);
     }
+    
+    //Metodo para Llenar la tabla:
+    public void setDataTable(String[][] datos, String[] encabezado)
+    {
+        this.jTBReservacionesDisponibles.setModel(new DefaultTableModel(datos, encabezado));
+        this.jScrollPane1.setViewportView(this.jTBReservacionesDisponibles); //Cargar la Tabla y se vea la barra de Desplazamiento.
+    }//Fin Metodo
+    
+    //Devuelva Titulo de lo seleccionado (Llenar espacios)
+    public String[] getDataRow() {
+        String[] datosCancion = new String[this.jTBReservacionesDisponibles.getColumnCount()];
+        int filaSeleccionada = this.jTBReservacionesDisponibles.getSelectedRow();
+        
+        for(int i = 0; i < datosCancion.length; i++) {
+            datosCancion[i] = this.jTBReservacionesDisponibles.getValueAt(filaSeleccionada, i).toString();
+        }//Fin FOR
+        return datosCancion;
+    }//Fin Metodo DataRow
+    
+    //Escuchar tabla cuando se seleccione
+    public void escucharMouse(MouseListener manejador) {
+        this.jTBReservacionesDisponibles.addMouseListener(manejador);
+    }//Fin Metodo escuchar Mouse
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,13 +63,13 @@ public class FRM_BuscarReserva extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTBReservacionesDisponibles = new javax.swing.JTable();
         jTFLugar = new javax.swing.JTextField();
         jBSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTBReservacionesDisponibles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -49,10 +77,10 @@ public class FRM_BuscarReserva extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Tipo", "Provincia", "Precio"
+                "Nombre", "Tipo", "Provincia", "Precio por Noche"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTBReservacionesDisponibles);
 
         jBSalir.setText("Salir");
 
@@ -61,16 +89,17 @@ public class FRM_BuscarReserva extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFLugar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(jBSalir)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                        .addGap(57, 57, 57)
+                        .addComponent(jTFLugar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBSalir)
+                .addGap(182, 182, 182))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +119,7 @@ public class FRM_BuscarReserva extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBSalir;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTBReservacionesDisponibles;
     private javax.swing.JTextField jTFLugar;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
