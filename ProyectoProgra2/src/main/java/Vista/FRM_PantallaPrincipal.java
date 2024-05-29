@@ -22,7 +22,6 @@ public class FRM_PantallaPrincipal extends javax.swing.JFrame {
     public void escucharBotones(ManejadorPantallaAdministradores manejador) {
 
         jMenuItem1.addActionListener(manejador);
-        jMenuItem2.addActionListener(manejador);
         jMenuItem3.addActionListener(manejador);
 
     }
@@ -41,8 +40,6 @@ public class FRM_PantallaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -61,13 +58,6 @@ public class FRM_PantallaPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Registro Cliente");
-
-        jMenuItem2.setText("Registro Cliente");
-        jMenu2.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Salir");
 
@@ -111,11 +101,9 @@ public class FRM_PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }

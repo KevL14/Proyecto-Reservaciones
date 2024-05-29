@@ -80,8 +80,9 @@ public class RegistroReservaciones {
         for (int i = 0; i < matriz.length; i++) {
             matriz[i][0] = this.listaReservaciones.get(i).getId();
             matriz[i][1] = this.listaReservaciones.get(i).getNombre();
+            matriz[i][3] = this.listaReservaciones.get(i).getTipo();
             matriz[i][2] = this.listaReservaciones.get(i).getProvincia();
-            matriz[i][3] = this.listaReservaciones.get(i).getUbicacion();
+
         }
         
         return matriz;
@@ -146,7 +147,7 @@ public class RegistroReservaciones {
 
             for (Object object : jsonArray) {
                 JSONObject jsonObject = (JSONObject) object;
-                String correo = (String) jsonObject.get("Correo");
+                String Id = (String) jsonObject.get("Id");
                 String nombre = (String) jsonObject.get("Nombre");
                 String tipo = (String) jsonObject.get("Tipo");
                 String provincia = (String) jsonObject.get("Provincia");
@@ -154,11 +155,18 @@ public class RegistroReservaciones {
                 String reservado = (String) jsonObject.get("Reservado");
                 String baños = (String) jsonObject.get("Baños");
                 String habitaciones = (String) jsonObject.get("Habitaciones");
+                String camas = (String) jsonObject.get("Camas");
+                String cocinaEquipada = (String) jsonObject.get("CocinaEquipada");
+                String zonaRecreativas = (String) jsonObject.get("ZonaRecreativa");
+                String piscina = (String) jsonObject.get("Piscina");
+                String parqueo = (String) jsonObject.get("Parqueo");
+                String seguridad = (String) jsonObject.get("Seguridad");
                 String transporte = (String) jsonObject.get("Transporte");
                 String desayuno = (String) jsonObject.get("Desayuno");
+                String servicioALaHabitacion = (String) jsonObject.get("Desayuno");
 
 
-                Reservaciones reservacion = new Reservaciones(correo,nombre,tipo,provincia,ubicacion,baños,habitaciones,transporte,desayuno);
+                Reservaciones reservacion = new Reservaciones(Id, nombre, tipo, provincia, ubicacion,reservado, baños, habitaciones, camas, cocinaEquipada, zonaRecreativas, piscina, parqueo, seguridad, transporte, desayuno,servicioALaHabitacion);
                 listaClien.add(reservacion);
             }
         } catch (IOException | ParseException e) {

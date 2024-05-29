@@ -7,6 +7,17 @@ package Modelo;
 /**
  *
  * @author Rubén Delgado C
+ * Fijos:
+
+Piscina
+Parqueo
+Seguridad
+Vista a la playa
+
+Elegibles
+Transporte
+Desayuno
+Servicio a la habitacion
  */
 public class Reservaciones {
     private String Id;
@@ -16,28 +27,37 @@ public class Reservaciones {
     private String ubicacion;
     private String reservado = "123_12(10)-24_14(10)-24{snnxsn} / 234_16(10)-24_20(10)-24";
 //    servicios fijos
-    private String baños;
-    private String habitaciones;
+    private String baños, habitaciones, camas, cocinaEquipada, zonaRecreativas, piscina, parqueo, seguridad;
+    
     
 //    servios incluibles 
-    private String transporte;
-    private String desayuno;
+    private String transporte,desayuno, servicioALaHabitacion;
     
     
     //Constructores: Con Parámetros y Vacio
-   
-    
-    public Reservaciones( String Id, String nombre, String tipo, String provincia, String ubicacion, String baños, String habitaciones, String transporte, String desayuno) {
+
+    public Reservaciones(String Id, String nombre, String tipo, String provincia, String ubicacion, String reservado, String baños, String habitaciones, String camas, String cocinaEquipada, String zonaRecreativas, String piscina, String parqueo, String seguridad, String transporte, String desayuno, String servicioALaHabitacion) {
         this.Id = Id;
         this.nombre = nombre;
         this.tipo = tipo;
         this.provincia = provincia;
         this.ubicacion = ubicacion;
+        this.reservado = reservado;
         this.baños = baños;
         this.habitaciones = habitaciones;
+        this.camas = camas;
+        this.cocinaEquipada = cocinaEquipada;
+        this.zonaRecreativas = zonaRecreativas;
+        this.piscina = piscina;
+        this.parqueo = parqueo;
+        this.seguridad = seguridad;
         this.transporte = transporte;
         this.desayuno = desayuno;
+        this.servicioALaHabitacion = servicioALaHabitacion;
     }
+   
+    
+
 
     public Reservaciones() {
         this.Id = "";
@@ -45,14 +65,19 @@ public class Reservaciones {
         this.tipo = "";
         this.provincia = "";
         this.ubicacion = "";
+        this.reservado = "";
         this.baños = "";
         this.habitaciones = "";
         this.transporte = "";
         this.desayuno = "";
+        this.camas=""; 
+        this.cocinaEquipada=""; 
+        this.zonaRecreativas=""; 
+        this.piscina=""; 
+        this.parqueo=""; 
+        this.seguridad="";
     }
-    
-    
-    //Metodos Setter y Getter
+
     public String getId() {
         return Id;
     }
@@ -69,12 +94,12 @@ public class Reservaciones {
         this.nombre = nombre;
     }
 
-    public String getUbicacion() {
-        return ubicacion;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getProvincia() {
@@ -85,12 +110,12 @@ public class Reservaciones {
         this.provincia = provincia;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getUbicacion() {
+        return ubicacion;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
     public String getReservado() {
@@ -117,6 +142,54 @@ public class Reservaciones {
         this.habitaciones = habitaciones;
     }
 
+    public String getCamas() {
+        return camas;
+    }
+
+    public void setCamas(String camas) {
+        this.camas = camas;
+    }
+
+    public String getCocinaEquipada() {
+        return cocinaEquipada;
+    }
+
+    public void setCocinaEquipada(String cocinaEquipada) {
+        this.cocinaEquipada = cocinaEquipada;
+    }
+
+    public String getZonaRecreativas() {
+        return zonaRecreativas;
+    }
+
+    public void setZonaRecreativas(String zonaRecreativas) {
+        this.zonaRecreativas = zonaRecreativas;
+    }
+
+    public String getPiscina() {
+        return piscina;
+    }
+
+    public void setPiscina(String piscina) {
+        this.piscina = piscina;
+    }
+
+    public String getParqueo() {
+        return parqueo;
+    }
+
+    public void setParqueo(String parqueo) {
+        this.parqueo = parqueo;
+    }
+
+    public String getSeguridad() {
+        return seguridad;
+    }
+
+    public void setSeguridad(String seguridad) {
+        this.seguridad = seguridad;
+    }
+
     public String getTransporte() {
         return transporte;
     }
@@ -132,11 +205,15 @@ public class Reservaciones {
     public void setDesayuno(String desayuno) {
         this.desayuno = desayuno;
     }
-    
 
-    @Override
-    public String toString() {
-        return "Reservaciones{" + "Id=" + Id + ", nombre=" + nombre + ", tipo=" + tipo + ", provincia=" + provincia + ", ubicacion=" + ubicacion + ", reservado=" + reservado + ", baños=" + baños + ", habitaciones=" + habitaciones + ", transporte=" + transporte + ", desayuno=" + desayuno + '}';
+    public String getServicioALaHabitacion() {
+        return servicioALaHabitacion;
+    }
+
+    public void setServicioALaHabitacion(String servicioALaHabitacion) {
+        this.servicioALaHabitacion = servicioALaHabitacion;
     }
     
+    
+   
 }//Fin Class

@@ -5,6 +5,7 @@
 package Vista;
 
 import Controlador.ManejadorListaReservaciones;
+import java.awt.event.MouseListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,10 +27,29 @@ public class FRM_ListaReservaciones extends javax.swing.JFrame {
         jBSalir.addActionListener(manejador);
     }
     
-    public void setDatosTabla(String[][]datos, int n){
-        this.jtTabla1.setModel(new DefaultTableModel(datos,n));
-        this.jScrollPane1.setViewportView(this.jtTabla1);
-    }
+//Metodo para Llenar la tabla:
+    public void setDataTable(String[][] datos, String[] encabezado)
+    {
+        this.jtTabla1.setModel(new DefaultTableModel(datos, encabezado));
+        this.jScrollPane1.setViewportView(this.jtTabla1); //Cargar la Tabla y se vea la barra de Desplazamiento.
+    }//Fin Metodo
+    
+    //Devuelva Titulo de lo seleccionado (Llenar espacios)
+    public String[] getDataRow() {
+        String[] datosCancion = new String[this.jtTabla1.getColumnCount()];
+        int filaSeleccionada = this.jtTabla1.getSelectedRow();
+        
+        for(int i = 0; i < datosCancion.length; i++) {
+            datosCancion[i] = this.jtTabla1.getValueAt(filaSeleccionada, i).toString();
+        }//Fin FOR
+        return datosCancion;
+    }//Fin Metodo DataRow
+    
+    //Escuchar tabla cuando se seleccione
+    public void escucharMouse(MouseListener manejador) {
+        this.jtTabla1.addMouseListener(manejador);
+    }//Fin Metodo escuchar Mouse
+
     
 
     /**

@@ -9,8 +9,7 @@ import Controlador.ManejadorRegistroReservaciones;
 /**
  *
  * @author msi
- * aqui es donde registramos las reserservaciones ( llenamos los atributos de reservaciones) las cosas enumerables o noombres van en textField
- * las que se puedan responder con si o no en checkbox
+ * Poner los checksbox de los servicios que faltan
  */
 public class FRM_RegistroReservaciones extends javax.swing.JFrame {
 
