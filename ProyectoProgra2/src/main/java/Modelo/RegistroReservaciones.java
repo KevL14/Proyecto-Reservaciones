@@ -18,7 +18,7 @@ import org.json.simple.parser.ParseException;
  * @author msi
  */
 public class RegistroReservaciones {
-        private ArrayList<Reservaciones> listaReservaciones;
+    private ArrayList<Reservaciones> listaReservaciones;
     private String mensaje;
     private String filePath = "reservaciones.json";
 
@@ -26,7 +26,7 @@ public class RegistroReservaciones {
         this.listaReservaciones = readJSON();
     }
     
-    public int buscarClientes(String correo){
+    public int buscarCliente(String correo){
         for (int i = 0; i < listaReservaciones.size(); i++) {
             if(listaReservaciones.get(i).getId().equals(correo)){
                 return i;
@@ -35,9 +35,9 @@ public class RegistroReservaciones {
         return -1;
     }
     
-    public String agregarClientes(Reservaciones reservacion){
+    public String agregarCliente(Reservaciones reservacion){
         if(reservacion != null){
-            if(buscarClientes(reservacion.getId()) == -1){
+            if(buscarCliente(reservacion.getId()) == -1){
                 listaReservaciones.add(reservacion);
                 
                 writeJSON();
@@ -50,8 +50,8 @@ public class RegistroReservaciones {
     }
     
     public String eliminarCliente(Reservaciones reservacion){
-        if(buscarClientes(reservacion.getId()) != -1){
-            listaReservaciones.remove(buscarClientes(reservacion.getId()));
+        if(buscarCliente(reservacion.getId()) != -1){
+            listaReservaciones.remove(buscarCliente(reservacion.getId()));
             
             writeJSON();
             mensaje = "El cliente fue eliminado exitosamente";
@@ -62,9 +62,9 @@ public class RegistroReservaciones {
     }
     
     public String modificarCliente(Reservaciones reservacion){
-            if(buscarClientes(reservacion.getId()) != -1){
+            if(buscarCliente(reservacion.getId()) != -1){
                 eliminarCliente(reservacion);
-                agregarClientes(reservacion);
+                agregarCliente(reservacion);
                 
                 writeJSON();
                 mensaje = "El cliente fue modificado exitosamente";
@@ -72,6 +72,19 @@ public class RegistroReservaciones {
                 mensaje = "No existe un cliente con este Correo";
             }
         return mensaje;
+    }
+    
+    public String[][] llenarMatrizTabla(){
+        String [][] matriz = new String[this.listaReservaciones.size()][4];
+        
+        for (int i = 0; i < matriz.length; i++) {
+            matriz[i][0] = this.listaReservaciones.get(i).getId();
+            matriz[i][1] = this.listaReservaciones.get(i).getNombre();
+            matriz[i][2] = this.listaReservaciones.get(i).getProvincia();
+            matriz[i][3] = this.listaReservaciones.get(i).getUbicacion();
+        }
+        
+        return matriz;
     }
     
     public void writeJSON(){
@@ -83,13 +96,16 @@ public class RegistroReservaciones {
 
             newObject.put("Correo", listaReservaciones.get(i).getId());
             newObject.put("Nombre", listaReservaciones.get(i).getNombre());
-//            newObject.put("Apellido", listaReservaciones.get(i).getApellido());
-//            newObject.put("Contraseña", listaReservaciones.get(i).getContraseña());
-//            newObject.put("Reservaciones", listaReservaciones.get(i).getReservaciones());
-//            newObject.put("Admin", listaReservaciones.get(i).getReservaciones());
-            
-            
-
+            newObject.put("Tipo", listaReservaciones.get(i).getTipo());
+            newObject.put("Provincia", listaReservaciones.get(i).getProvincia());
+            newObject.put("Ubicacion", listaReservaciones.get(i).getUbicacion());
+            newObject.put("Reservado", listaReservaciones.get(i).getReservado());
+            //Servicios fijos
+            newObject.put("Baños", listaReservaciones.get(i).getBaños());
+            newObject.put("Habitaciones", listaReservaciones.get(i).getHabitaciones());
+            //Servicios incluibles
+            newObject.put("Transporte", listaReservaciones.get(i).getTransporte());
+            newObject.put("Desayuno", listaReservaciones.get(i).getDesayuno());
 
             jsonArray.add(newObject);
 
@@ -102,16 +118,16 @@ public class RegistroReservaciones {
         }
     }
 
-//    public ArrayList<Cliente> getListaClientes() {
-//        readJSON();
-//        return listaClientes;
-//    }
-    public Reservaciones getCliente(String id){
-        int indiceReservacion = buscarClientes(id);
+    //public ArrayList<Reservaciones> getListaReservaciones() {
+    //    readJSON();
+    //    return listaReservaciones;
+    //}
+    
+    public Reservaciones getReservaciones(String id){
+        int indiceReservacion = buscarCliente(id);
         if(indiceReservacion!=-1){
             System.out.println(listaReservaciones.get(indiceReservacion).toString());
-            return listaReservaciones.get(indiceReservacion);
-            
+            return listaReservaciones.get(indiceReservacion);  
         }
         
         return null;
@@ -132,14 +148,17 @@ public class RegistroReservaciones {
                 JSONObject jsonObject = (JSONObject) object;
                 String correo = (String) jsonObject.get("Correo");
                 String nombre = (String) jsonObject.get("Nombre");
-                String apellido = (String) jsonObject.get("Apellido");
-                String contraseña = (String) jsonObject.get("Contraseña");
-                String reservaciones = (String) jsonObject.get("Reservaciones");
-                String admin = (String) jsonObject.get("Admin");
-                
+                String tipo = (String) jsonObject.get("Tipo");
+                String provincia = (String) jsonObject.get("Provincia");
+                String ubicacion = (String) jsonObject.get("Ubicacion");
+                String reservado = (String) jsonObject.get("Reservado");
+                String baños = (String) jsonObject.get("Baños");
+                String habitaciones = (String) jsonObject.get("Habitaciones");
+                String transporte = (String) jsonObject.get("Transporte");
+                String desayuno = (String) jsonObject.get("Desayuno");
 
 
-                Reservaciones reservacion = new Reservaciones(/*atributos*/);
+                Reservaciones reservacion = new Reservaciones(correo,nombre,tipo,provincia,ubicacion,baños,habitaciones,transporte,desayuno);
                 listaClien.add(reservacion);
             }
         } catch (IOException | ParseException e) {

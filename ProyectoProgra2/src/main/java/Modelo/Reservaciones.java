@@ -25,16 +25,30 @@ public class Reservaciones {
     
     
     //Constructores: Con Parámetros y Vacio
-    public Reservaciones(String Id, String nombre, String ubicacion) {
+   
+    
+    public Reservaciones( String Id, String nombre, String tipo, String provincia, String ubicacion, String baños, String habitaciones, String transporte, String desayuno) {
         this.Id = Id;
         this.nombre = nombre;
+        this.tipo = tipo;
+        this.provincia = provincia;
         this.ubicacion = ubicacion;
+        this.baños = baños;
+        this.habitaciones = habitaciones;
+        this.transporte = transporte;
+        this.desayuno = desayuno;
     }
-    
-    public Reservaciones( ) {
+
+    public Reservaciones() {
         this.Id = "";
         this.nombre = "";
+        this.tipo = "";
+        this.provincia = "";
         this.ubicacion = "";
+        this.baños = "";
+        this.habitaciones = "";
+        this.transporte = "";
+        this.desayuno = "";
     }
     
     
@@ -71,9 +85,58 @@ public class Reservaciones {
         this.provincia = provincia;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getReservado() {
+        return reservado;
+    }
+
+    public void setReservado(String reservado) {
+        this.reservado = reservado;
+    }
+
+    public String getBaños() {
+        return baños;
+    }
+
+    public void setBaños(String baños) {
+        this.baños = baños;
+    }
+
+    public String getHabitaciones() {
+        return habitaciones;
+    }
+
+    public void setHabitaciones(String habitaciones) {
+        this.habitaciones = habitaciones;
+    }
+
+    public String getTransporte() {
+        return transporte;
+    }
+
+    public void setTransporte(String transporte) {
+        this.transporte = transporte;
+    }
+
+    public String getDesayuno() {
+        return desayuno;
+    }
+
+    public void setDesayuno(String desayuno) {
+        this.desayuno = desayuno;
+    }
+    
+
     @Override
     public String toString() {
-        return "Reservaciones{" + "Id=" + Id + ", nombre=" + nombre + ", tipo=" + tipo + ", provincia=" + provincia + ", ubicacion=" + ubicacion + ", reservado=" + reservado + ", ba\u00f1os=" + baños + ", habitaciones=" + habitaciones + ", transporte=" + transporte + ", desayuno=" + desayuno + '}';
+        return "Reservaciones{" + "Id=" + Id + ", nombre=" + nombre + ", tipo=" + tipo + ", provincia=" + provincia + ", ubicacion=" + ubicacion + ", reservado=" + reservado + ", baños=" + baños + ", habitaciones=" + habitaciones + ", transporte=" + transporte + ", desayuno=" + desayuno + '}';
     }
     
 }//Fin Class

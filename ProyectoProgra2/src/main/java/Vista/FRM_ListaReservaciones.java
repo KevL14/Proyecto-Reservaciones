@@ -5,6 +5,7 @@
 package Vista;
 
 import Controlador.ManejadorListaReservaciones;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,6 +25,12 @@ public class FRM_ListaReservaciones extends javax.swing.JFrame {
         jBNuevaReserva.addActionListener(manejador);
         jBSalir.addActionListener(manejador);
     }
+    
+    public void setDatosTabla(String[][]datos, int n){
+        this.jtTabla1.setModel(new DefaultTableModel(datos,n));
+        this.jScrollPane1.setViewportView(this.jtTabla1);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,14 +42,14 @@ public class FRM_ListaReservaciones extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtTabla1 = new javax.swing.JTable();
         jBSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jBNuevaReserva = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtTabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -53,7 +60,7 @@ public class FRM_ListaReservaciones extends javax.swing.JFrame {
                 "Id", "Nombre", "Tipo", "Provincia"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtTabla1);
 
         jBSalir.setText("Salir");
 
@@ -106,6 +113,6 @@ public class FRM_ListaReservaciones extends javax.swing.JFrame {
     private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtTabla1;
     // End of variables declaration//GEN-END:variables
 }
