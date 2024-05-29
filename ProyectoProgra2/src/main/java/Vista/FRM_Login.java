@@ -43,6 +43,15 @@ public class FRM_Login extends javax.swing.JFrame {
         return jTFCorreo.getText();
     }
     
+    public boolean validarCampos(){
+        boolean verificar=false;
+        
+        if (jTFCorreo.getText().isBlank() && jTFContraseña.getText().isBlank()) {
+            verificar = true;
+        }   
+        return verificar;
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.

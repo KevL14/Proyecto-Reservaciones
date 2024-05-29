@@ -80,8 +80,8 @@ public class RegistroReservaciones {
         for (int i = 0; i < listaReservaciones.size(); i++) {
             matrizTabla[i][0] = this.listaReservaciones.get(i).getNombre();
             matrizTabla[i][1] = this.listaReservaciones.get(i).getTipo();
-            matrizTabla[i][3] = this.listaReservaciones.get(i).getProvincia();
-            matrizTabla[i][2] = this.listaReservaciones.get(i).getPrecioNoche();
+            matrizTabla[i][2] = this.listaReservaciones.get(i).getProvincia();
+            matrizTabla[i][3] = this.listaReservaciones.get(i).getPrecioNoche();
 
         }
         

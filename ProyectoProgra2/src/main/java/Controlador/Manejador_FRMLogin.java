@@ -38,28 +38,35 @@ public class Manejador_FRMLogin implements ActionListener{
     public void visualizarVentana(){
         frmLogin.setVisible(true);
     }
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
             case "Iniciar Sesion":
-               Cliente clienteLogin = manejadorRegistro.getClienteBuscado(frmLogin.getjTFCorreo());
-               boolean validacionDatos = administrarLogin.validarInicioSesion(clienteLogin, frmLogin.getjTFCorreo(),frmLogin.getjTFContraseña());
-                System.out.println(frmLogin.getjTFCorreo() +" = "+ clienteLogin.getCorreo()+"\n "+frmLogin.getjTFContraseña()+" = "+clienteLogin.getContraseña());
-                System.out.println("Validacion de datos = "+ validacionDatos);
-               
-               if(validacionDatos){
-                   String admin = clienteLogin.getAdmin();
-                   if(admin.equalsIgnoreCase("yes")){
-                       manejadorPantallaAdministradores.visibilidadVentana();
-                       
-                   }else{
-                       manejadorPantallaClientes.visibilidadVentana();
-                   }
-                   frmLogin.limpiar();
-                   frmLogin.dispose();
-               }else{
-                  frmLogin.mostrarMensaje("Correo o Coontraseña no validos");
-               }
+                if (frmLogin.validarCampos() == false) {
+                    Cliente clienteLogin = manejadorRegistro.getClienteBuscado(frmLogin.getjTFCorreo());
+                    boolean validacionDatos = administrarLogin.validarInicioSesion(clienteLogin, frmLogin.getjTFCorreo(), frmLogin.getjTFContraseña());
+                    System.out.println(frmLogin.getjTFCorreo() + " = " + clienteLogin.getCorreo() + "\n " + frmLogin.getjTFContraseña() + " = " + clienteLogin.getContraseña());
+                    System.out.println("Validacion de datos = " + validacionDatos);
+
+                    if (validacionDatos) {
+                        String admin = clienteLogin.getAdmin();
+                        if (admin.equalsIgnoreCase("yes")) {
+                            manejadorPantallaAdministradores.visibilidadVentana();
+
+                        } else {
+                            manejadorPantallaClientes.visibilidadVentana();
+                        }
+                        frmLogin.limpiar();
+                        frmLogin.dispose();
+                    } else {
+                        frmLogin.mostrarMensaje("Correo o Coontraseña no validos");
+                    }
+                }else{
+                    frmLogin.mostrarMensaje("Debe de llenar los espacios primero");
+                }
+              
                 break;
                 
             case "Registrarme":
