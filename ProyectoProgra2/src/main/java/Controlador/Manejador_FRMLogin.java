@@ -44,7 +44,7 @@ public class Manejador_FRMLogin implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
             case "Iniciar Sesion":
-                if (frmLogin.validarCampos() == false) {
+                  if (frmLogin.validarCampos() == false) {
                     Cliente clienteLogin = manejadorRegistro.getClienteBuscado(frmLogin.getjTFCorreo());
                     boolean validacionDatos = administrarLogin.validarInicioSesion(clienteLogin, frmLogin.getjTFCorreo(), frmLogin.getjTFContraseña());
                     System.out.println(frmLogin.getjTFCorreo() + " = " + clienteLogin.getCorreo() + "\n " + frmLogin.getjTFContraseña() + " = " + clienteLogin.getContraseña());
@@ -63,10 +63,10 @@ public class Manejador_FRMLogin implements ActionListener{
                     } else {
                         frmLogin.mostrarMensaje("Correo o Coontraseña no validos");
                     }
-                }else{
+                } else {
                     frmLogin.mostrarMensaje("Debe de llenar los espacios primero");
                 }
-              
+               
                 break;
                 
             case "Registrarme":

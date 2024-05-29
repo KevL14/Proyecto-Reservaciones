@@ -35,10 +35,7 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTFContraseña" min="-2" pref="232" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jTFContraseña" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -49,16 +46,19 @@
               <EmptySpace min="0" pref="205" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
                       <Component id="jBTNInicioSesion" min="-2" pref="125" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="244" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jBTNRegistro" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -72,8 +72,8 @@
               <EmptySpace pref="94" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jTFCorreo" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="jTFCorreo" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -99,11 +99,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&#xbf;Aun no tienes una cuenta?"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTFContrase&#xf1;a">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFContrase&#xf1;aActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTFCorreo">
       <Events>
@@ -154,6 +149,8 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Correo"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTFContrase&#xf1;a">
     </Component>
   </SubComponents>
 </Form>

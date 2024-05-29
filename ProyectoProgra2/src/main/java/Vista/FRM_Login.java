@@ -5,6 +5,7 @@
 package Vista;
 
 import Controlador.Manejador_FRMLogin;
+import Modelo.Cliente;
 import javax.swing.JOptionPane;
 
 
@@ -13,7 +14,8 @@ import javax.swing.JOptionPane;
  * @author msi
  */
 public class FRM_Login extends javax.swing.JFrame {
-
+    
+    Cliente cliente;
     /**
      * Creates new form FRM_Login
      */
@@ -46,11 +48,12 @@ public class FRM_Login extends javax.swing.JFrame {
     public boolean validarCampos(){
         boolean verificar=false;
         
-        if (jTFCorreo.getText().isBlank() && jTFContraseña.getText().isBlank()) {
+        if (jTFCorreo.getText().isBlank() || jTFContraseña.getText().isBlank()) {
             verificar = true;
         }   
         return verificar;
     }
+    
     
     
     /**
@@ -63,7 +66,6 @@ public class FRM_Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTFContraseña = new javax.swing.JTextField();
         jTFCorreo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -71,17 +73,12 @@ public class FRM_Login extends javax.swing.JFrame {
         jBTNRegistro = new javax.swing.JButton();
         jBTNInicioSesion = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jTFContraseña = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("¿Aun no tienes una cuenta?");
-
-        jTFContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFContraseñaActionPerformed(evt);
-            }
-        });
 
         jTFCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,9 +118,7 @@ public class FRM_Login extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jTFContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jTFContraseña)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -131,14 +126,16 @@ public class FRM_Login extends javax.swing.JFrame {
                 .addGap(0, 205, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(204, 204, 204))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jBTNInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(244, 244, 244))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jBTNRegistro)
-                        .addGap(261, 261, 261))))
+                        .addGap(261, 261, 261))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(204, 204, 204))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,8 +145,8 @@ public class FRM_Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,10 +162,6 @@ public class FRM_Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTFContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFContraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFContraseñaActionPerformed
 
     private void jTFCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCorreoActionPerformed
         // TODO add your handling code here:
